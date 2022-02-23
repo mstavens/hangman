@@ -17,16 +17,12 @@ public class MainActivity extends AppCompatActivity {
 
         myStartButton = findViewById(R.id.start_game);
 
-        myStartButton.setOnClickListener((View view){
+        myStartButton.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View view){
                 Intent intent = new Intent(this, GameActivity.class);
                 startActivity(intent);
             }
-
-
-
-
 
 //            view.onClick({
 //                Intent intent = new Intent(this, GameActivity.class);
