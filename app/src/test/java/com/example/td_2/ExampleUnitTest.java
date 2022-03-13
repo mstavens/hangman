@@ -1,4 +1,4 @@
-package com.example.td_android_1;
+package com.example.td_2;
 
 import org.junit.Test;
 
