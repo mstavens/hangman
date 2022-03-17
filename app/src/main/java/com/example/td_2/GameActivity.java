@@ -138,8 +138,19 @@ public class GameActivity extends AppCompatActivity {
             // Finally, display the new text.
             mHidText.setText(getDisplayText());
         if(chans==0){
+            String result = "GAME OVER!!";
             Intent gameIntent = new Intent(GameActivity.this,
                     EndActivity.class);
+            gameIntent.putExtra("my_array", result);
+            startActivity(gameIntent);
+        }
+        String egaliteTest=new String(moKache);
+        
+        if (chosenWord.equals(egaliteTest) ){
+            String result = "YOU WIN!!!";
+            Intent gameIntent = new Intent(GameActivity.this,
+                    EndActivity.class);
+            gameIntent.putExtra("my_array", result);
             startActivity(gameIntent);
         }
         }

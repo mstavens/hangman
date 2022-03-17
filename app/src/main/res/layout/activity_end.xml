@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:text="GAME OVER!!"
+            android:id="@+id/end_game_message"
+            android:text=""
             android:textSize="30dp"
             />
         <Button

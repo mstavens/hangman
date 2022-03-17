@@ -10,9 +10,9 @@
         android:id="@+id/chansTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
         android:layout_centerHorizontal="true"
-        android:text=""/>
+        android:text=""
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/hiddenWord"
