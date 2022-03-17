@@ -24,6 +24,8 @@ public class GameActivity extends AppCompatActivity {
     // mo kap chwazi otomatik la
     private String chosenWord;
 
+    private int firstletter = 0;
+
     // Widjet pou afiche chans yo
     TextView mChansText;
 
@@ -76,36 +78,63 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void onTapLetter(View theView) {
+        // get the tap letter
+        Button mButton = (Button) theView;
+        String letter = mButton.getText().toString();
 
-            // get the tap letter
-            Button mButton = (Button) theView;
-            String letter = mButton.getText().toString();
+        System.out.println(chosenWord);
+        System.out.println(letter);
+            if (firstletter==0) {
 
-            System.out.println(chosenWord);
-            System.out.println(letter);
+               // The following condition will fail sometimes, because of the case. Make sure your convert both <chosenWord> and <letter> to lower or uppercase.
+                if (chosenWord.contains(letter)) {
+                    firstletter=1;
+                    // get the index
+                    int index = chosenWord.indexOf(letter);
 
-            // The following condition will fail sometimes, because of the case. Make sure your convert both <chosenWord> and <letter> to lower or uppercase.
-            if (chosenWord.contains(letter)) {
-                // get the index
-                int index = chosenWord.indexOf(letter);
+                    // Tanke endèks la >= 0, sa vle di gen lèt la nan <chosenWord> la toujou
+                    while (index >= 0) {
+                        // This is just a hack to convert the string to char, since moKache is an array of characters
+                        moKache[index] = letter.charAt(0); // chartAt(0) to take the first character from the letter.
 
-                // Tanke endèks la >= 0, sa vle di gen lèt la nan <chosenWord> la toujou
-                while (index >= 0) {
-                    // This is just a hack to convert the string to char, since moKache is an array of characters
-                    moKache[index] = letter.charAt(0); // chartAt(0) to take the first character from the letter.
+                        index = chosenWord.indexOf(letter, index + 1); // DO NOT forget to specify the fromIndex to avoid infinite loop
+                    }
+                    System.out.println(moKache);
 
-                    index = chosenWord.indexOf(letter, index + 1); // DO NOT forget to specify the fromIndex to avoid infinite loop
+                } else {
+                    // Minus the total of tries
+                    chans -= 1;
+                    mChansText.setText(chans + " chans");
+                    // Display a short message
+                    Toast.makeText(this, "Lèt ou tape a, pa nan mo a", Toast.LENGTH_SHORT).show();
+
                 }
-                System.out.println(moKache);
-            } else {
-                // Minus the total of tries
-                chans -= 1;
-                mChansText.setText(chans + " chans");
-                // Display a short message
-                Toast.makeText(this, "Lèt ou tape a, pa nan mo a", Toast.LENGTH_SHORT).show();
+            }else{
 
+                // The following condition will fail sometimes, because of the case. Make sure your convert both <chosenWord> and <letter> to lower or uppercase.
+                if (chosenWord.contains(letter.toLowerCase())) {
+
+                    // get the index
+                    int index = chosenWord.indexOf(letter);
+
+                    // Tanke endèks la >= 0, sa vle di gen lèt la nan <chosenWord> la toujou
+                    while (index >= 0) {
+                        // This is just a hack to convert the string to char, since moKache is an array of characters
+                        moKache[index] = letter.charAt(0); // chartAt(0) to take the first character from the letter.
+
+                        index = chosenWord.indexOf(letter, index + 1); // DO NOT forget to specify the fromIndex to avoid infinite loop
+                    }
+                    System.out.println(moKache);
+
+                } else {
+                    // Minus the total of tries
+                    chans -= 1;
+                    mChansText.setText(chans + " chans");
+                    // Display a short message
+                    Toast.makeText(this, "Lèt ou tape a, pa nan mo a", Toast.LENGTH_SHORT).show();
+
+                }
             }
-
             // Finally, display the new text.
             mHidText.setText(getDisplayText());
         if(chans==0){
