@@ -115,14 +115,14 @@ public class GameActivity extends AppCompatActivity {
                 if (chosenWord.contains(letter.toLowerCase())) {
 
                     // get the index
-                    int index = chosenWord.indexOf(letter);
+                    int index = chosenWord.indexOf(letter.toLowerCase());
 
                     // Tanke endèks la >= 0, sa vle di gen lèt la nan <chosenWord> la toujou
-                    while (index >= 0) {
+                    while (index >= 1) {
                         // This is just a hack to convert the string to char, since moKache is an array of characters
-                        moKache[index] = letter.charAt(0); // chartAt(0) to take the first character from the letter.
+                        moKache[index] = letter.toLowerCase().charAt(0); // chartAt(0) to take the first character from the letter.
 
-                        index = chosenWord.indexOf(letter, index + 1); // DO NOT forget to specify the fromIndex to avoid infinite loop
+                        index = chosenWord.indexOf(letter.toLowerCase(), index + 1); // DO NOT forget to specify the fromIndex to avoid infinite loop
                     }
                     System.out.println(moKache);
 
