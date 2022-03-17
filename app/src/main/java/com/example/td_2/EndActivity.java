@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 public class EndActivity extends AppCompatActivity {
     private Button mButton;
+    //widget pou afiche stati jwè a nan fen jwèt la
     TextView mresultText;
 
 
@@ -23,10 +24,9 @@ public class EndActivity extends AppCompatActivity {
         mresultText = (TextView) findViewById(R.id.end_game_message);
         mresultText.setText(resulta);
 
-
         mButton = (Button) findViewById(R.id.replay_game);
-        // Widjet pou afiche rezilta fen jwèt al
 
+            //Redireksyon nan paj pou redemare jwèt la
             View.OnClickListener bClick = new View.OnClickListener(){
                 @Override
                 public void onClick(View v){

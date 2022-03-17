@@ -58,12 +58,16 @@ public class GameActivity extends AppCompatActivity {
             moKache[i] = '_';
         }
 
+        //Kalkil 20% endis
         int longueur= moKache.length;
         Double ongueur= (longueur * 0.2);
         longueur = ongueur.intValue();
+
+        //Afichaj endis la
         m20pourcent= (TextView) findViewById(R.id.preview);
         String prevWord=chosenWord.substring(0,longueur);
         m20pourcent.setText("Endis: "+prevWord);
+
         // Set the string to Widget
         mHidText.setText(getDisplayText());
     }
@@ -84,15 +88,16 @@ public class GameActivity extends AppCompatActivity {
         return words[random.nextInt(words.length)];
     }
 
-    public void onTapLetter(View theView) {
+    public void èonTapLetter(View theView) {
         // get the tap letter
         Button mButton = (Button) theView;
         String letter = mButton.getText().toString();
 
         System.out.println(chosenWord);
         System.out.println(letter);
-            if (firstletter==0) {
 
+            if (firstletter==0) //Test sou premye lèt la
+            {
                // The following condition will fail sometimes, because of the case. Make sure your convert both <chosenWord> and <letter> to lower or uppercase.
                 if (chosenWord.contains(letter)) {
                     firstletter=1;
@@ -116,9 +121,9 @@ public class GameActivity extends AppCompatActivity {
                     Toast.makeText(this, "Lèt ou tape a, pa nan mo a", Toast.LENGTH_SHORT).show();
 
                 }
-            }else{
+            }else{// Test sou lot lèt yo
 
-                // The following condition will fail sometimes, because of the case. Make sure your convert both <chosenWord> and <letter> to lower or uppercase.
+                //Tout lot lèt ap pase an miniskil pou test yo ka fèt
                 if (chosenWord.contains(letter.toLowerCase())) {
 
                     // get the index
@@ -144,6 +149,8 @@ public class GameActivity extends AppCompatActivity {
             }
             // Finally, display the new text.
             mHidText.setText(getDisplayText());
+
+            //Lè itlizatè a pa ret chans anko
         if(chans==0){
             String result = "GAME OVER!!";
             Intent gameIntent = new Intent(GameActivity.this,
@@ -151,6 +158,8 @@ public class GameActivity extends AppCompatActivity {
             gameIntent.putExtra("my_array", result);
             startActivity(gameIntent);
         }
+
+        //Verifikasyon ki pou defini lè itilizatè a fin rantre tt bon mo a, e dil ke li genyen
         String egaliteTest=new String(moKache);
 
         if (chosenWord.equals(egaliteTest) ){
