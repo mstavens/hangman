@@ -63,7 +63,7 @@ public class GameActivity extends AppCompatActivity {
         longueur = ongueur.intValue();
         m20pourcent= (TextView) findViewById(R.id.preview);
         String prevWord=chosenWord.substring(0,longueur);
-        m20pourcent.setText(prevWord);
+        m20pourcent.setText("Endis: "+prevWord);
         // Set the string to Widget
         mHidText.setText(getDisplayText());
     }
