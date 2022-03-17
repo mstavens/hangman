@@ -76,7 +76,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void onTapLetter(View theView) {
-        if (chans > 0) {
+
             // get the tap letter
             Button mButton = (Button) theView;
             String letter = mButton.getText().toString();
@@ -108,12 +108,13 @@ public class GameActivity extends AppCompatActivity {
 
             // Finally, display the new text.
             mHidText.setText(getDisplayText());
+        if(chans==0){
+            Intent gameIntent = new Intent(GameActivity.this,
+                    EndActivity.class);
+            startActivity(gameIntent);
         }
-    else {
+        }
 
-        Intent gameIntent = new Intent(GameActivity.this,
-                EndActivity.class);
-        startActivity(gameIntent);
-    }
-    }
+
+
 }
