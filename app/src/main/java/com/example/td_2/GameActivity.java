@@ -2,6 +2,7 @@ package com.example.td_2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -74,36 +75,45 @@ public class GameActivity extends AppCompatActivity {
         return words[random.nextInt(words.length)];
     }
 
-    public void onTapLetter(View theView){
-        // get the tap letter
-        Button mButton = (Button) theView;
-        String letter = mButton.getText().toString();
+    public void onTapLetter(View theView) {
+        if (chans > 0) {
+            // get the tap letter
+            Button mButton = (Button) theView;
+            String letter = mButton.getText().toString();
 
-        System.out.println(chosenWord);
-        System.out.println(letter);
+            System.out.println(chosenWord);
+            System.out.println(letter);
 
-        // The following condition will fail sometimes, because of the case. Make sure your convert both <chosenWord> and <letter> to lower or uppercase.
-        if(chosenWord.contains(letter)){
-            // get the index
-            int index = chosenWord.indexOf(letter);
+            // The following condition will fail sometimes, because of the case. Make sure your convert both <chosenWord> and <letter> to lower or uppercase.
+            if (chosenWord.contains(letter)) {
+                // get the index
+                int index = chosenWord.indexOf(letter);
 
-            // Tanke endèks la >= 0, sa vle di gen lèt la nan <chosenWord> la toujou
-            while(index >= 0){
-                // This is just a hack to convert the string to char, since moKache is an array of characters
-                moKache[index] = letter.charAt(0); // chartAt(0) to take the first character from the letter.
+                // Tanke endèks la >= 0, sa vle di gen lèt la nan <chosenWord> la toujou
+                while (index >= 0) {
+                    // This is just a hack to convert the string to char, since moKache is an array of characters
+                    moKache[index] = letter.charAt(0); // chartAt(0) to take the first character from the letter.
 
-                index = chosenWord.indexOf(letter, index + 1); // DO NOT forget to specify the fromIndex to avoid infinite loop
+                    index = chosenWord.indexOf(letter, index + 1); // DO NOT forget to specify the fromIndex to avoid infinite loop
+                }
+                System.out.println(moKache);
+            } else {
+                // Minus the total of tries
+                chans -= 1;
+                mChansText.setText(chans + " chans");
+                // Display a short message
+                Toast.makeText(this, "Lèt ou tape a, pa nan mo a", Toast.LENGTH_SHORT).show();
+
             }
-            System.out.println(moKache);
-        }else{
-            // Minus the total of tries
-            chans -= 1;
-            mChansText.setText(chans + " chans");
-            // Display a short message
-            Toast.makeText(this, "Lèt ou tape a, pa nan mo a", Toast.LENGTH_SHORT).show();
-        }
 
-        // Finally, display the new text.
-        mHidText.setText(getDisplayText());
+            // Finally, display the new text.
+            mHidText.setText(getDisplayText());
+        }
+    else {
+
+        Intent gameIntent = new Intent(GameActivity.this,
+                EndActivity.class);
+        startActivity(gameIntent);
+    }
     }
 }
