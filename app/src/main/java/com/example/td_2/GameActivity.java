@@ -29,6 +29,7 @@ public class GameActivity extends AppCompatActivity {
     // Widjet pou afiche chans yo
     TextView mChansText;
 
+    TextView m20pourcent;
     // Widget pou achite karaktè kache yo
     TextView mHidText;
 
@@ -57,6 +58,12 @@ public class GameActivity extends AppCompatActivity {
             moKache[i] = '_';
         }
 
+        int longueur= moKache.length;
+        Double ongueur= (longueur * 0.2);
+        longueur = ongueur.intValue();
+        m20pourcent= (TextView) findViewById(R.id.preview);
+        String prevWord=chosenWord.substring(0,longueur);
+        m20pourcent.setText(prevWord);
         // Set the string to Widget
         mHidText.setText(getDisplayText());
     }
@@ -145,7 +152,7 @@ public class GameActivity extends AppCompatActivity {
             startActivity(gameIntent);
         }
         String egaliteTest=new String(moKache);
-        
+
         if (chosenWord.equals(egaliteTest) ){
             String result = "YOU WIN!!!";
             Intent gameIntent = new Intent(GameActivity.this,
