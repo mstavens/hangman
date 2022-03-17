@@ -88,6 +88,12 @@
                 android:layout_height="wrap_content"
                 android:onClick="onTapLetter"
                 android:text="O"/>
+            <Button
+                android:layout_width="39dp"
+                android:layout_marginRight="2dp"
+                android:layout_height="wrap_content"
+                android:onClick="onTapLetter"
+                android:text="P"/>
 
         </LinearLayout>
         <LinearLayout
@@ -106,7 +112,67 @@
                 android:layout_marginRight="2dp"
                 android:layout_height="wrap_content"
                 android:onClick="onTapLetter"
-                android:text="B"/>
+                android:text="S"/>
+            <Button
+                android:layout_width="39dp"
+                android:layout_marginRight="2dp"
+                android:layout_height="wrap_content"
+                android:onClick="onTapLetter"
+                android:text="D"/>
+            <Button
+                android:layout_width="39dp"
+                android:layout_marginRight="2dp"
+                android:layout_height="wrap_content"
+                android:onClick="onTapLetter"
+                android:text="F"/>
+            <Button
+                android:layout_width="39dp"
+                android:layout_marginRight="2dp"
+                android:layout_height="wrap_content"
+                android:onClick="onTapLetter"
+                android:text="G"/>
+            <Button
+                android:layout_width="39dp"
+                android:layout_marginRight="2dp"
+                android:layout_height="wrap_content"
+                android:onClick="onTapLetter"
+                android:text="H"/>
+            <Button
+                android:layout_width="39dp"
+                android:layout_marginRight="2dp"
+                android:layout_height="wrap_content"
+                android:onClick="onTapLetter"
+                android:text="J"/>
+            <Button
+                android:layout_width="39dp"
+                android:layout_marginRight="2dp"
+                android:layout_height="wrap_content"
+                android:onClick="onTapLetter"
+                android:text="K"/>
+            <Button
+                android:layout_width="39dp"
+                android:layout_marginRight="2dp"
+                android:layout_height="wrap_content"
+                android:onClick="onTapLetter"
+                android:text="L"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+            <Button
+                android:layout_width="39dp"
+                android:layout_marginRight="2dp"
+                android:layout_height="wrap_content"
+                android:onClick="onTapLetter"
+                android:text="Z"/>
+            <Button
+                android:layout_width="39dp"
+                android:layout_marginRight="2dp"
+                android:layout_height="wrap_content"
+                android:onClick="onTapLetter"
+                android:text="X"/>
             <Button
                 android:layout_width="39dp"
                 android:layout_marginRight="2dp"
@@ -118,13 +184,25 @@
                 android:layout_marginRight="2dp"
                 android:layout_height="wrap_content"
                 android:onClick="onTapLetter"
-                android:text="S"/>
+                android:text="V"/>
             <Button
                 android:layout_width="39dp"
                 android:layout_marginRight="2dp"
                 android:layout_height="wrap_content"
                 android:onClick="onTapLetter"
-                android:text="H"/>
+                android:text="B"/>
+            <Button
+                android:layout_width="39dp"
+                android:layout_marginRight="2dp"
+                android:layout_height="wrap_content"
+                android:onClick="onTapLetter"
+                android:text="N"/>
+            <Button
+                android:layout_width="39dp"
+                android:layout_marginRight="2dp"
+                android:layout_height="wrap_content"
+                android:onClick="onTapLetter"
+                android:text="M"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
