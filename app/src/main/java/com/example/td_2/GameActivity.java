@@ -88,7 +88,7 @@ public class GameActivity extends AppCompatActivity {
         return words[random.nextInt(words.length)];
     }
 
-    public void èonTapLetter(View theView) {
+    public void onTapLetter(View theView) {
         // get the tap letter
         Button mButton = (Button) theView;
         String letter = mButton.getText().toString();
